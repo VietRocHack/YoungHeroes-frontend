@@ -60,8 +60,9 @@ export default function PracticeResult() {
             </div>
           </div>
         </div>
-        <div className="p-6 pt-0">
-          <button className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-4 rounded-lg flex items-center justify-center transition duration-300 ease-in-out">
+        <div className="p-6 pt-0 flex justify-center items-center">
+          
+          <button className="w-80 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-4 rounded-lg flex items-center justify-center transition duration-300 ease-in-out">
             <HomeIcon className="w-5 h-5 mr-2" />
             Return Home
           </button>
