@@ -1,17 +1,23 @@
 import React from 'react';
+import Teamwork from '../assets/teamwork.png';
 
 const HomePage = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
           <div className="w-full max-w-[375px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
 
-            <h1 className="text-5xl font-bold leading-tight text-center mb-8 text-black">Young Heroes</h1>
+            <h1 className="text-5xl font-bold leading-tight text-center mt-16 mb-8 text-black">Young Heroes</h1>
+            <img 
+                src={Teamwork} 
+                alt="Workflow Teamwork Illustration" 
+                className="w-[320px] h-[320px] mx-auto rounded-lg"
+            />
         
-            <div className="space-y-4 mb-8">
-                <h2 className="text-3xl font-semibold text-center text-black">
+            <div className="flex flex-col items-center space-y-4 mb-16">
+                <h2 className="w-[192px] h-[28px] text-2xl font-semibold text-center text-black">
                     Save Your <span className="text-emerald-400">Soul</span>
                 </h2>
-                <p className="text-lg text-gray-600 text-center">
+                <p className="w-[295px] h-[20px] text-sx text-gray-600 text-center">
                     Empower kids to escape from danger
                 </p>
             </div>
