@@ -1,10 +1,10 @@
 import { HomeIcon, AlertCircle, CheckCircle, Heart } from "lucide-react";
-import dog from "../../assets/dog.png";
-import reported from "../../assets/reported.png";
-import delivered from "../../assets/delivered.png";
-import calm from "../../assets/calm.png";
+import dog from "../../../assets/dog.png";
+import reported from "../../../assets/reported.png";
+import delivered from "../../../assets/delivered.png";
+import calm from "../../../assets/calm.png";
 
-export default function PracticeResult() {
+export default function RecognizeResult() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 w-full p-4">
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
