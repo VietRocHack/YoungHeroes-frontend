@@ -1,7 +1,10 @@
 import React from 'react';
 import Teamwork from '../assets/teamwork.png';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
           <div className="w-full max-w-[375px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
@@ -24,7 +27,7 @@ const HomePage = () => {
             
             <div className="flex flex-col items-center space-y-4">
                 <button 
-                    onClick={() => {/* Add navigation logic here */}}
+                    onClick={() => navigate('/skills')}
                     className="w-[211px] h-[56px] py-3 px-4 text-lg font-bold bg-black text-white rounded-full border border-gray-100 shadow-xl duration-300 ease-in-out"
                 >
                     Skills
@@ -42,4 +45,4 @@ const HomePage = () => {
     );
 }
 
-export default HomePage
+export default HomePage;
