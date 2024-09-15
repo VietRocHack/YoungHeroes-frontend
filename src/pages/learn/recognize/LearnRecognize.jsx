@@ -1,5 +1,5 @@
 import { Volume2, Heart } from "lucide-react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import star from "../../../assets/star.png";
 import deco1 from "../../../assets/learnRec1.png";
 import deco2 from "../../../assets/learnRec2.png";
@@ -12,11 +12,21 @@ import burningHouse from "../../../assets/BurningHouse.jpg";
 import callHelp from "../../../assets/CallHelp.jpg";
 
 export default function LearnRecognize() {
+  const [voices, setVoices] = useState([]);
   const [value, setValue] = useState(10);
   const [showFeedback, setShowFeedback] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [current, setCurrent] = useState(0);
   const [isCorrectChoice, setIsCorrectChoice] = useState(null);
+
+  useEffect(() => {
+    const loadVoices = () => {
+      const voicesList = window.speechSynthesis.getVoices();
+      setVoices(voicesList);
+    };
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }, []); 
 
   const scenarios = [
     {
@@ -224,8 +234,6 @@ export default function LearnRecognize() {
     setTimeout(() => {
       const nextScenarioId = option.nextScenario;
       if (nextScenarioId === null) {
-        // Handle the end of the scenarios or transition to a different screen
-        // For example, navigate to another page or show a completion screen
         console.log(
           "Reached end of scenarios. Handle navigation or completion screen here."
         );
@@ -244,12 +252,29 @@ export default function LearnRecognize() {
     }, 1500);
   };
 
+  
+  function speakDescription(text) {
+    if (voices.length > 0) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      
+      utterance.voice = voices[5] || voices[0];
+      
+      utterance.pitch = 1.3; 
+      utterance.rate = 1.1;   
+      
+      window.speechSynthesis.speak(utterance);
+    }
+  }  
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="w-full max-w-[375px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
         <div className="flex-1 p-6 flex flex-col">
           <div className="flex justify-between items-center mb-6">
-            <Volume2 className="text-gray-600" size={24} />
+            <button onClick={() => speakDescription(scenarios[current].description)}  
+            className="bg-white hover:bg-gray-200 p-2 rounded-full">
+              <Volume2 className="text-gray-600" size={24} />
+            </button>
             <div className="flex items-center space-x-2">
               <span className="text-gray-600 font-semibold">{value}</span>
               <Heart className="text-red-600" size={24} />
@@ -308,8 +333,8 @@ export default function LearnRecognize() {
               <img src={deco2} alt="decoration" className="w-full h-full" />
             </div>
             {scenarios
-              .filter((scenario, index) => index === current) // Filter to get the current scenario
-              .flatMap((scenario) => scenario.options) // Flatten options array
+              .filter((scenario, index) => index === current)
+              .flatMap((scenario) => scenario.options)
               .map((option, index) => (
                 <button
                   key={index}
