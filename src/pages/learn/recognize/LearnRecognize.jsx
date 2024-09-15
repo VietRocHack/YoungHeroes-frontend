@@ -10,6 +10,8 @@ import fireWorse from "../../../assets/FireWorse.jpg";
 import seeFire from "../../../assets/SeeFire.jpg";
 import burningHouse from "../../../assets/BurningHouse.jpg";
 import callHelp from "../../../assets/CallHelp.jpg";
+import RecognizeResult from "./RecognizeResult";
+import { useNavigate } from "react-router-dom";
 
 export default function LearnRecognize() {
   const [value, setValue] = useState(10);
@@ -17,6 +19,7 @@ export default function LearnRecognize() {
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [current, setCurrent] = useState(0);
   const [isCorrectChoice, setIsCorrectChoice] = useState(null);
+  const navigate = useNavigate();
 
   const scenarios = [
     {
@@ -35,7 +38,7 @@ export default function LearnRecognize() {
         {
           text: "Open a window",
           nextScenario: "window",
-          isCorrect: false,
+          isCorrect: true,
           feedback:
             "Opening a window might help with smoke, but it's not addressing the main problem.",
         },
@@ -224,8 +227,7 @@ export default function LearnRecognize() {
     setTimeout(() => {
       const nextScenarioId = option.nextScenario;
       if (nextScenarioId === null) {
-        // Handle the end of the scenarios or transition to a different screen
-        // For example, navigate to another page or show a completion screen
+        navigate('/skills/recognize/result');
         console.log(
           "Reached end of scenarios. Handle navigation or completion screen here."
         );
@@ -241,7 +243,7 @@ export default function LearnRecognize() {
       if (!option.isCorrect) {
         setValue(value - 1);
       }
-    }, 1500);
+    }, 2000);
   };
 
   return (
@@ -258,16 +260,14 @@ export default function LearnRecognize() {
 
           {showFeedback ? (
             <div
-              className={`bg-${
-                isCorrectChoice ? "green" : "red"
-              }-100 border border-${
-                isCorrectChoice ? "green" : "red"
-              }-300 rounded-lg p-4 mb-6 flex items-start`}
+              className={`border rounded-lg p-4 mb-6 flex items-start ${
+                isCorrectChoice ? "bg-green-100 border-green-300" : "bg-red-100 border-red-300"
+              }`}
             >
               <div
-                className={`text-${
-                  isCorrectChoice ? "green" : "red"
-                }-500 mr-2 flex-shrink-0`}
+                className={`mr-2 flex-shrink-0 ${
+                  isCorrectChoice ? "text-green-500" : "text-red-500"
+                }`}
                 style={{ fontSize: "20px", lineHeight: "20px" }}
               >
                 {isCorrectChoice ? "✓" : "✗"}
