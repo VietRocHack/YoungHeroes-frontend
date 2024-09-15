@@ -1,4 +1,4 @@
-import { Volume2, Heart, X } from "lucide-react";
+import { Volume2, Heart } from "lucide-react";
 import { useState } from "react";
 import star from "../../../assets/star.png";
 import deco1 from "../../../assets/learnRec1.png";
@@ -6,6 +6,10 @@ import deco2 from "../../../assets/learnRec2.png";
 import kitchenSmoke from "../../../assets/KitchenSmoke.jpg";
 import stoveFire from "../../../assets/StoveFire.jpg";
 import windowOpen from "../../../assets/WindowOpen.jpg";
+import fireWorse from "../../../assets/FireWorse.jpg";
+import seeFire from "../../../assets/SeeFire.jpg";
+import burningHouse from "../../../assets/BurningHouse.jpg";
+import callHelp from "../../../assets/CallHelp.jpg";
 
 export default function LearnRecognize() {
   const [value, setValue] = useState(10);
@@ -103,7 +107,7 @@ export default function LearnRecognize() {
     },
     {
       id: "water",
-      image: "/placeholder.svg?height=300&width=400",
+      image: fireWorse,
       description:
         "The water made the fire worse! It's spreading quickly. What do you do?",
       options: [
@@ -132,7 +136,7 @@ export default function LearnRecognize() {
     },
     {
       id: "outside",
-      image: "/placeholder.svg?height=300&width=400",
+      image: seeFire,
       description:
         "You're safely outside, but the fire is still burning inside. What's the best action?",
       options: [
@@ -154,7 +158,7 @@ export default function LearnRecognize() {
     },
     {
       id: "extinguisher",
-      image: "/placeholder.svg?height=300&width=400",
+      image: fireWorse,
       description:
         "You couldn't find a fire extinguisher, and the fire is getting bigger. What now?",
       options: [
@@ -176,7 +180,7 @@ export default function LearnRecognize() {
     },
     {
       id: "wait",
-      image: "/placeholder.svg?height=300&width=400",
+      image: burningHouse,
       description:
         "You're waiting outside, but no one seems to know about the fire. What should you do?",
       options: [
@@ -198,9 +202,10 @@ export default function LearnRecognize() {
     },
     {
       id: "neighbor",
-      image: "/placeholder.svg?height=300&width=400",
+      image: callHelp,
       description:
         "Your neighbor suggests calling the fire department. What's the best way to do that?",
+      options: [],
       call911: {
         text: "Call 911",
         nextScenario: null,
@@ -216,13 +221,27 @@ export default function LearnRecognize() {
     setShowFeedback(true);
     setIsCorrectChoice(option.isCorrect);
 
-    if (option.isCorrect) {
-      setTimeout(() => {
-        setCurrent(current + 1);
-        setShowFeedback(false);
-        setIsCorrectChoice(null);
-      }, 2500);
-    }
+    setTimeout(() => {
+      const nextScenarioId = option.nextScenario;
+      if (nextScenarioId === null) {
+        // Handle the end of the scenarios or transition to a different screen
+        // For example, navigate to another page or show a completion screen
+        console.log(
+          "Reached end of scenarios. Handle navigation or completion screen here."
+        );
+      } else {
+        const nextScenarioIndex = scenarios.findIndex(
+          (scenario) => scenario.id === nextScenarioId
+        );
+        setCurrent(nextScenarioIndex);
+      }
+
+      setShowFeedback(false);
+      setIsCorrectChoice(null);
+      if (!option.isCorrect) {
+        setValue(value - 1);
+      }
+    }, 1500);
   };
 
   return (
@@ -245,12 +264,14 @@ export default function LearnRecognize() {
                 isCorrectChoice ? "green" : "red"
               }-300 rounded-lg p-4 mb-6 flex items-start`}
             >
-              <X
+              <div
                 className={`text-${
                   isCorrectChoice ? "green" : "red"
                 }-500 mr-2 flex-shrink-0`}
-                size={20}
-              />
+                style={{ fontSize: "20px", lineHeight: "20px" }}
+              >
+                {isCorrectChoice ? "✓" : "✗"}
+              </div>
               <div>
                 <p
                   className={`font-extrabold ${
@@ -279,27 +300,33 @@ export default function LearnRecognize() {
             />
           </div>
 
-          <div className=" relative space-y-4">
+          <div className="relative space-y-4">
             <div
               className="absolute w-24 h-24 rounded-full"
               style={{ top: "-50px", left: "-10px" }}
             >
               <img src={deco2} alt="decoration" className="w-full h-full" />
             </div>
-            {scenarios[current].options.map((option, index) => (
+            {scenarios
+              .filter((scenario, index) => index === current) // Filter to get the current scenario
+              .flatMap((scenario) => scenario.options) // Flatten options array
+              .map((option, index) => (
                 <button
-                key={index}
-                className="w-full border border-gray-300 rounded-full bg-white hover:bg-gray-300 text-gray-800 transition duration-300 ease-in-out"
-                onClick={() => handleOptionClick(option)}
-              >
-                {option.text}
-              </button>
-            ))}
+                  key={index}
+                  className="w-full border border-gray-300 rounded-full bg-white hover:bg-gray-300 text-gray-800 transition duration-300 ease-in-out"
+                  onClick={() => handleOptionClick(option)}
+                >
+                  {option.text}
+                </button>
+              ))}
           </div>
         </div>
 
         <div className="relative p-6 pt-2 flex justify-center items-center">
-          <button  onClick={() => handleOptionClick(scenarios[current].call911)}className=" w-40 border border-gray-100 bg-white text-gray-800 font-semibold py-3 px-4 rounded-full transition duration-300 ease-in-out shadow-xl">
+          <button
+            onClick={() => handleOptionClick(scenarios[current].call911)}
+            className="w-40 border border-gray-100 bg-white text-gray-800 font-semibold py-3 px-4 rounded-full transition duration-300 ease-in-out shadow-xl"
+          >
             Call 911
             <div className="absolute left-5 bottom-5 w-10 h-10 rounded-full">
               <img src={star} alt="decoration" className="w-full h-full" />

@@ -3,7 +3,6 @@ import HomePage from './pages/HomePage';
 import Skills from './pages/Skills';
 import Practice from './pages/Practice';
 import PracticeCall from "./pages/practice/PracticeCall";
-import PracticeResult from "./pages/practice/PracticeResult";
 import LearnRecognize from "./pages/learn/recongize/LearnRecognize";
 import Communicate from './pages/learn/communicate/Communicate';
 
