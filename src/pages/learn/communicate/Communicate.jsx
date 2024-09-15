@@ -80,7 +80,7 @@ export default function Communicate() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(prevIndex => prevIndex + 1);
     } else {
-      navigate('/results'); // Navigate to results page when all questions are answered
+      navigate('/skills/communicate/result'); // Navigate to results page when all questions are answered
     }
   };
 

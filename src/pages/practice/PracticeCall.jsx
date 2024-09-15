@@ -5,16 +5,16 @@ import ballon from "../../assets/ballon.png"
 export default function PracticeCall() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-[375px] h-[812px] bg-pink-200 rounded-3xl shadow-lg overflow-hidden flex flex-col">
+      <div className="w-full max-w-[375px] h-[812px] bg-red-100 rounded-3xl shadow-lg overflow-hidden flex flex-col">
         <div className="flex-1 p-6 flex flex-col">
           <div className="w-full flex justify-between items-center mb-8">
           </div>
           
           <div className="flex-1 flex items-center justify-center">
             <div className="relative w-64 h-64">
-              <div className="absolute inset-0 bg-pink-300 rounded-full opacity-75"></div>
-              <div className="absolute inset-4 bg-pink-400 rounded-full opacity-75"></div>
-              <div className="absolute inset-8 bg-pink-500 rounded-full opacity-75"></div>
+              <div className="absolute inset-0 bg-red-200 rounded-full opacity-75"></div>
+              <div className="absolute inset-4 bg-red-300 rounded-full opacity-75"></div>
+              <div className="absolute inset-8 bg-red-400 rounded-full opacity-75"></div>
               <div className="absolute inset-12 bg-white rounded-full flex items-center justify-center">
                 <Headphones className="text-blue-600" size={70} />
               </div>
@@ -28,7 +28,7 @@ export default function PracticeCall() {
           </div>
           
           <div className="text-center">
-            <h2 className="text-2xl font-semibold mb-4">Emergency Calling...</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-black">Emergency Calling...</h2>
           </div>
         </div>
         
