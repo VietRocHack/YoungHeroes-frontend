@@ -61,6 +61,7 @@ export default function Communicate() {
   const [timer, setTimer] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [error, setError] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -74,6 +75,10 @@ export default function Communicate() {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const handleOptionClick = (index) => {
+    setSelectedOption(index);
   };
 
   const handleContinue = () => {
@@ -108,7 +113,11 @@ export default function Communicate() {
             {currentQuestion.options.map((option, index) => (
               <div 
                 key={index} 
-                className="rounded-full flex items-center justify-center p-2 aspect-square border-2 border-gray-300 overflow-hidden"
+                // className="rounded-full flex items-center justify-center p-2 aspect-square border-2 border-gray-300 overflow-hidden"
+                className={`rounded-full flex items-center justify-center p-2 aspect-square border-2 overflow-hidden cursor-pointer ${
+                  selectedOption === index ? 'border-green-500' : 'border-gray-300'
+                }`}
+                onClick={() => handleOptionClick(index)}
               >
                 <img
                   src={option.image}
