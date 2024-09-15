@@ -79,9 +79,6 @@ export default function PracticeCall() {
       // If no ID is found, call the API to fetch a new one
       fetchIdFromAPI();
     }
-
-    // Start the call when the component mounts
-    handleClick();
   }, []); // Empty dependency array ensures it only runs once
 
   const handleStartCall = () => {
@@ -176,6 +173,7 @@ export default function PracticeCall() {
         const audioBlob = new Blob(audioChunksRef.current, {
           type: "audio/webm",
         });
+
         audioBlobRef.current = audioBlob; // Store the audio Blob in state
         setIsRecording(false);
         textRef.current = await handleSpeechToText();
@@ -295,15 +293,12 @@ export default function PracticeCall() {
         <div className="p-6 pt-0 flex justify-center items-center">
           <button
             className="w-60 mb-8 bg-white text-gray-800 font-semibold py-3 px-4 rounded-full transition duration-300 ease-in-out shadow-xl"
-            onClick={() => handleClick()}
+            onClick={handleClick}
             disabled={!clickable}
           >
-            {state == states.User ? "Stop Speaking" : "Dispatch is speaking..."}
+            {buttonInfo[state]}
           </button>
         </div>
-
-        <div>{state}</div>
-        <div>{id}</div>
 
         <div className="p-6 pt-0 flex justify-center items-center">
           <button
