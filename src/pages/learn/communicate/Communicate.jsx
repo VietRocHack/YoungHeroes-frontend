@@ -81,7 +81,7 @@ export default function Communicate() {
           </button>
           <button 
             onClick={() => navigate('/next-page')}
-            className="w-[150px] py-3 px-4 text-lg font-bold bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out"
+            className="w-[150px] py-3 px-4 text-lg font-bold bg-white text-black rounded-full shadow-md hover:bg-gray-50 transition duration-300 ease-in-out"
           >
             Continue
           </button>
