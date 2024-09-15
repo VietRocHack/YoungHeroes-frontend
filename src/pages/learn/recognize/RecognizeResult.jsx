@@ -3,8 +3,10 @@ import dog from "../../../assets/dog.png";
 import reported from "../../../assets/reported.png";
 import delivered from "../../../assets/delivered.png";
 import calm from "../../../assets/calm.png";
+import { useNavigate } from "react-router-dom";
 
 export default function RecognizeResult() {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 w-full p-4">
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
@@ -62,10 +64,11 @@ export default function RecognizeResult() {
           </div>
         </div>
         <div className="p-6 pt-0 flex justify-center items-center">
-          
-          <button className="w-80 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-4 rounded-lg flex items-center justify-center transition duration-300 ease-in-out">
-            <HomeIcon className="w-5 h-5 mr-2" />
-            Return Home
+          <button 
+            onClick={() => navigate('/')}
+            className="w-[150px] py-3 px-4 text-lg font-bold bg-white text-black rounded-full shadow-md hover:bg-gray-50 transition duration-300 ease-in-out"
+          >
+            Home
           </button>
         </div>
       </div>

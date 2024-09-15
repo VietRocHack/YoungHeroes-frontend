@@ -1,8 +1,11 @@
 import React from 'react';
 import Searching from '../assets/searching.png';
 import Relationship from '../assets/relationship.png';
+import { useNavigate } from 'react-router-dom';
 
 const Skills = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
             <div className="w-full max-w-[375px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
@@ -21,7 +24,7 @@ const Skills = () => {
                             className="w-[300px] h-[300px] mx-auto rounded-lg"
                         />
                         <button 
-                            onClick={() => {/* Add navigation logic here */}}
+                            onClick={() => navigate('/skills/recognize')}
                             className="absolute bottom-[-28px] left-1/2 transform -translate-x-1/2 w-[211px] h-[56px] py-3 px-4 text-lg font-bold bg-white text-gray-800 rounded-full border border-gray-100 shadow-xl hover:bg-gray-50 transition duration-300 ease-in-out"
                         >
                             Recognize
@@ -35,7 +38,7 @@ const Skills = () => {
                             className="w-[300px] h-[300px] mx-auto rounded-lg"
                         />
                         <button 
-                            onClick={() => {/* Add navigation logic here */}}
+                            onClick={() => navigate('/skills/communicate')}
                             className="absolute bottom-[-28px] left-1/2 transform -translate-x-1/2 w-[211px] h-[56px] py-3 px-4 text-lg font-bold bg-white text-gray-800 rounded-full border border-gray-100 shadow-xl hover:bg-gray-50 transition duration-300 ease-in-out"
                         >
                             Communicate
