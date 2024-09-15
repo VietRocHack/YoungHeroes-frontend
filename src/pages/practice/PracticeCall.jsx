@@ -1,8 +1,10 @@
 import { Headphones } from "lucide-react"
 import planet from "../../assets/planet.png"
 import ballon from "../../assets/ballon.png"
+import { useNavigate } from "react-router-dom"
 
 export default function PracticeCall() {
+  const navigate = useNavigate();
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-[375px] h-[812px] bg-red-100 rounded-3xl shadow-lg overflow-hidden flex flex-col">
@@ -33,7 +35,10 @@ export default function PracticeCall() {
         </div>
         
         <div className="p-6 pt-0 flex justify-center items-center">
-          <button className="w-60 bg-white text-gray-800 font-semibold py-3 px-4 rounded-full transition duration-300 ease-in-out shadow-xl">
+          <button 
+            className="w-60 bg-white text-gray-800 font-semibold py-3 px-4 rounded-full transition duration-300 ease-in-out shadow-xl"
+            onClick={() => navigate('/practice/recognize/result')}
+          >
             End Call
           </button>
         </div>

@@ -7,6 +7,7 @@ import Communicate from './pages/learn/communicate/Communicate';
 import LearnRecognize from "./pages/learn/recognize/LearnRecognize";
 import RecognizeResult from './pages/learn/recognize/RecognizeResult';
 import CommunicateResult from './pages/learn/communicate/CommunicateResult';
+import DecisionToCall from './pages/practice/DecisionToCall';
 
 export default function App() {
   return (
@@ -20,12 +21,12 @@ export default function App() {
         <Route path="/skills/communicate/result" element={<CommunicateResult />} />
 
         <Route path="/practice" element={<Practice />} />
+        <Route path="/practice/decision" element={<DecisionToCall />} />
         <Route path="/practice/call" element={<PracticeCall />} />
         
         <Route path="/skills/recognize/result" element={<RecognizeResult />} />
-        {/* 
-        <Route path="/practice/scenario" element={<Scenario />} />
-        <Route path="/practice/result" element={<Result />} /> */}
+        <Route path="/practice/recognize/result" element={<RecognizeResult />} />
+
       </Routes>
     </Router>
   );
