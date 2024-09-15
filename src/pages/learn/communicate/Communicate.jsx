@@ -16,6 +16,7 @@ import Stomachache from '../../../assets/stomachache.png';
 import Stuck from '../../../assets/hole.png';
 import BrokenLeg from '../../../assets/broken-leg.png';
 import Dizzy from '../../../assets/dizziness.png';
+import Firefighter from '../../../assets/firefighter.png';
 
 const questions = [
   {
@@ -24,7 +25,7 @@ const questions = [
       { text: 'Fire!', image: Fire },
       { text: 'Medical Help', image: Ambulance },
       { text: 'Danger!', image: Policeman },
-      { text: 'Other', image: 'https://picsum.photos/seed/other/200/200' },
+      { text: 'Other', image: Firefighter },
     ],
   },
   {
