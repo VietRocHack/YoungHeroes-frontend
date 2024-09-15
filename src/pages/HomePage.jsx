@@ -18,25 +18,25 @@ const HomePage = () => {
         
             <div className="flex flex-col items-center space-y-4 mb-16">
                 <h2 className="w-[192px] h-[28px] text-2xl font-semibold text-center text-black">
-                    Save Your <span className="text-emerald-400">Soul</span>
+                    Anyone can <span className="text-emerald-400">Help</span>
                 </h2>
                 <p className="w-[295px] h-[20px] text-sx text-gray-600 text-center">
-                    Empower kids to escape from danger
+                    When life is on the line.
                 </p>
             </div>
             
             <div className="flex flex-col items-center space-y-4">
                 <button 
-                    onClick={() => navigate('/skills')}
+                    onClick={() => navigate('/practice')}
                     className="w-[211px] h-[56px] py-3 px-4 text-lg font-bold bg-black text-white rounded-full border border-gray-100 shadow-xl duration-300 ease-in-out"
                 >
-                    Skills
+                    Simulate
                 </button>
                 <button 
-                    onClick={() => navigate('/practice')}
+                    onClick={() => navigate('/skills')}
                     className="w-[211px] h-[56px] py-3 px-4 text-lg font-bold bg-white text-gray-800 rounded-full border border-gray-100 shadow-xl hover:bg-gray-50 transition duration-300 ease-in-out"
                 >
-                    Practice
+                    Skills
                 </button>
             </div>
               
