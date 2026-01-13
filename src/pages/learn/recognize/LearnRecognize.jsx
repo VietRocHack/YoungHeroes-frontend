@@ -6,10 +6,10 @@ import deco2 from "../../../assets/learnRec2.png";
 import kitchenSmoke from "../../../assets/KitchenSmoke.jpg";
 import stoveFire from "../../../assets/StoveFire.jpg";
 import windowOpen from "../../../assets/WindowOpen.jpg";
-import fireWorse from "../../../assets/FireWorse.jpg";
-import seeFire from "../../../assets/SeeFire.jpg";
-import burningHouse from "../../../assets/BurningHouse.jpg";
-import callHelp from "../../../assets/CallHelp.jpg";
+import fireWorse from "../../../assets/fireWorse.jpg";
+import seeFire from "../../../assets/seeFire.jpg";
+import burningHouse from "../../../assets/burningHouse.jpg";
+import callHelp from "../../../assets/callHelp.jpg";
 import RecognizeResult from "./RecognizeResult";
 import { useNavigate } from "react-router-dom";
 
