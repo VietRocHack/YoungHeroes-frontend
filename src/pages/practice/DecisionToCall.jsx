@@ -6,7 +6,7 @@ const DecisionToCall = () => {
     const navigate = useNavigate();
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-            <div className="w-full max-w-[375px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col items-center justify-between py-8 px-6">
+            <div className="w-[400px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col items-center justify-between py-8 px-6">
                 <div className="text-center">
                     <h1 className="text-3xl font-semibold text-gray-800 mt-16">Having an Emergency?</h1>
                     <p className="text-lg text-gray-600 mt-4">

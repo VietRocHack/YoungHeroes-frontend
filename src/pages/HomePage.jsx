@@ -7,7 +7,7 @@ const HomePage = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-          <div className="w-full max-w-[375px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
+          <div className="w-[400px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
 
             <h1 className="text-5xl font-bold leading-tight text-center mt-16 mb-8 text-black">Young Heroes</h1>
             <img 

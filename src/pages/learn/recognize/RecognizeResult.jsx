@@ -8,10 +8,10 @@ import { useNavigate } from "react-router-dom";
 export default function RecognizeResult() {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 w-full p-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="p-6 flex flex-col items-center">
-          <div className="flex justify-center space-x-4">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+      <div className="w-[400px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
+        <div className="flex-1 p-6 flex flex-col items-center overflow-y-auto">
+          <div className="flex justify-center space-x-4 mb-4">
             {[...Array(3)].map((_, i) => (
               <svg
                 key={i}
@@ -31,39 +31,39 @@ export default function RecognizeResult() {
               </svg>
             ))}
           </div>
-          <img src={dog} alt="dog" className="w-64 h-64" />
-          <h1 className="font-bold text-black">Excellent!</h1>
+          <img src={dog} alt="dog" className="w-64 h-64 mb-4" />
+          <h1 className="font-bold text-black text-xl mb-6">Excellent!</h1>
+          <div className="w-full space-y-4">
+            <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-3">
+              <AlertCircle className="w-6 h-6 text-red-500 flex-shrink-0" />
+              <div className="w-full flex flex-row justify-between">
+                <span className="font-medium text-blue-800 my-auto">
+                  Emergency reported!
+                </span>
+                <img src={reported} alt="reported" className="w-12 h-12 flex-shrink-0" />
+              </div>
+            </div>
+            <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-3">
+              <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0" />
+              <div className="w-full flex flex-row justify-between">
+                <span className="font-medium text-green-800 my-auto">
+                  Situation delivered!
+                </span>
+                <img src={delivered} alt="delivered" className="w-16 h-14 flex-shrink-0" />
+              </div>
+            </div>
+            <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-3">
+              <Heart className="w-6 h-6 text-purple-500 flex-shrink-0" />
+              <div className="w-full flex flex-row justify-between">
+                <span className="font-medium text-purple-800 my-auto">
+                  You kept calm!
+                </span>
+                <img src={calm} alt="calm" className="w-16 h-16 flex-shrink-0" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="p-6 space-y-4">
-          <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-3">
-            <AlertCircle className="w-6 h-6 text-red-500" />
-            <div className="w-full flex flex-row justify-between">
-              <span className="font-medium text-blue-800 my-auto">
-                Emergency reported!
-              </span>
-              <img src={reported} alt="reported" className="w-12 h-12" />
-            </div>
-          </div>
-          <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-3">
-            <CheckCircle className="w-6 h-6 text-green-500" />
-            <div className="w-full flex flex-row justify-between">
-              <span className="font-medium text-green-800 my-auto">
-                Situation delivered!
-              </span>
-              <img src={delivered} alt="delivered" className="w-16 h-14" />
-            </div>
-          </div>
-          <div className="bg-gray-100 p-4 rounded-lg flex items-center space-x-3">
-            <Heart className="w-6 h-6 text-purple-500" />
-            <div className="w-full flex flex-row justify-between">
-              <span className="font-medium text-purple-800 my-auto">
-                You kept calm!
-              </span>
-              <img src={calm} alt="calm" className="w-16 h-16" />
-            </div>
-          </div>
-        </div>
-        <div className="p-6 pt-0 flex justify-center items-center">
+        <div className="p-6 pt-0 flex justify-center items-center flex-shrink-0">
           <button 
             onClick={() => navigate('/')}
             className="w-[150px] py-3 px-4 text-lg font-bold bg-white text-black rounded-full shadow-md hover:bg-gray-50 transition duration-300 ease-in-out"

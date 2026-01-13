@@ -1,5 +1,5 @@
 import { Volume2, Heart } from "lucide-react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import star from "../../../assets/star.png";
 import deco1 from "../../../assets/learnRec1.png";
 import deco2 from "../../../assets/learnRec2.png";
@@ -272,7 +272,7 @@ export default function LearnRecognize() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="w-full max-w-[375px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
+      <div className="w-[400px] h-[812px] bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col">
         <div className="flex-1 p-6 flex flex-col">
           <div className="flex justify-between items-center mb-6">
             <button onClick={() => speakDescription(scenarios[current].description)}  

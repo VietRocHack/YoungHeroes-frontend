@@ -240,7 +240,7 @@ export default function PracticeCall() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-[375px] h-[812px] bg-red-100 rounded-3xl shadow-lg overflow-hidden flex flex-col">
+      <div className="w-[400px] h-[812px] bg-red-100 rounded-3xl shadow-lg overflow-hidden flex flex-col">
         <div className="flex-1 p-6 flex flex-col">
           <div className="text-center mt-8">
             <h1 className="text-4xl text-black">911</h1>
