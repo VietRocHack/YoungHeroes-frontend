@@ -4,6 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Fix workspace root warning by explicitly setting the root
+  outputFileTracingRoot: require('path').join(__dirname),
 }
 
 module.exports = nextConfig
