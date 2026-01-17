@@ -4,6 +4,7 @@ import { Headphones } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { api } from "../../../lib/api";
 
 const states = {
   START: "start",
@@ -61,7 +62,7 @@ export default function PracticeCall() {
     // Function to fetch the ID from the API
     const fetchIdFromAPI = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/api/new_call");
+        const response = await axios.get(api.newCall());
         if (response.data) {
           localStorage.setItem("uniqueId", response.data);
           setId(response.data);
@@ -88,12 +89,8 @@ export default function PracticeCall() {
 
   const handleDispatcherCall = async (text) => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/api/tts", {
+      const response = await axios.get(api.tts(text, id), {
         responseType: "arraybuffer",
-        params: {
-          text: text,
-          callId: id,
-        },
       });
       if (response.data) {
         console.log("Audio file received:", response.data);
@@ -122,14 +119,7 @@ export default function PracticeCall() {
     } finally {
       var isEnding = false;
       try {
-        const response = await axios.get(
-          "http://127.0.0.1:5000/api/get_call_states",
-          {
-            params: {
-              callId: id,
-            },
-          }
-        );
+        const response = await axios.get(api.getCallStates(id));
         if (response.data) {
           console.log(response.data);
           if (response.data[0]) {
@@ -193,7 +183,7 @@ export default function PracticeCall() {
       formData.append("audio", audioBlobRef.current);
 
       const response = await axios.post(
-        "http://127.0.0.1:5000/api/stt",
+        api.stt(),
         formData,
         {
           headers: {
